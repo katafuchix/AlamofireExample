@@ -12,6 +12,8 @@ import NSObject_Rx
 
 class ViewController: UIViewController {
 
+    let viewModel = ViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,7 +25,26 @@ class ViewController: UIViewController {
             }, onError: { error in
                 print("Error: \(error.localizedDescription)")
             })
-            .disposed(by: rx.disposeBag) 
+            .disposed(by: rx.disposeBag)
+        
+        self.viewModel.searchWord.accept("Blue")
+        self.viewModel.searchTrigger.onNext(())
+        
+        self.viewModel.drinks.subscribe(onNext: {
+            print($0)
+        }).disposed(by: rx.disposeBag)
+        
+        self.viewModel.isLoading.asObservable().subscribe(onNext: {
+            print("============")
+            print($0)
+            print("============")
+        }).disposed(by: rx.disposeBag)
+        
+        self.viewModel.errorMessage.asObservable().subscribe(onNext: {
+            print("============")
+            print($0)
+            print("============")
+        }).disposed(by: rx.disposeBag)
     }
 
 
