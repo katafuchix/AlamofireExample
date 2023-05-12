@@ -10,55 +10,24 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import NSObject_Rx
-//import SVProgressHUD
+import MBProgressHUD // Pod だと arm64エラーになるので Package でインストールする
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!  // 利用しないが例のために記述
     
     let viewModel = ViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        /*
-        HttpClientRx.sendGETRequestRxAlamofire(url: "https://example.com/api/data", parameters: ["key": "value"])
-            .subscribe(onNext: { data in
-                // 受信したデータを処理する
-                print("Received data: \(data)")
-            }, onError: { error in
-                print("Error: \(error.localizedDescription)")
-            })
-            .disposed(by: rx.disposeBag)
-        
-        self.viewModel.searchWord.accept("Blue")
-        self.viewModel.searchTrigger.onNext(())
-        */
-        self.viewModel.drinks.subscribe(onNext: {
-            print($0)
-        }).disposed(by: rx.disposeBag)
-        
-        self.viewModel.isLoading.asObservable().subscribe(onNext: {
-            print("============")
-            print($0)
-            print("============")
-        }).disposed(by: rx.disposeBag)
-        
-        self.viewModel.errorMessage.asObservable().subscribe(onNext: {
-            print("============")
-            print($0)
-            print("============")
-        }).disposed(by: rx.disposeBag)
-        
-        
         
         self.bind()
     }
 
     func bind() {
-        
         // 検索バー
         self.searchBar.rx.text.asObservable()
             .map { $0 ?? "" }
@@ -74,6 +43,7 @@ class ViewController: UIViewController {
         
         self.searchBar.rx.textDidBeginEditing.asDriver().drive(onNext: { [weak self] in
                 self?.searchBar.showsCancelButton = true
+                self?.viewModel.reset()
             })
             .disposed(by: rx.disposeBag)
 
@@ -86,30 +56,27 @@ class ViewController: UIViewController {
             })
             .disposed(by: rx.disposeBag)
         
-        self.viewModel.searchWord.asObservable().subscribe(onNext: {
-            print("============")
-            print($0)
-            print("============")
-        }).disposed(by: rx.disposeBag)
-        
         // UITableViewCell Items
         self.viewModel.drinks.asObservable().bind(to:
                 tableView.rx.items(cellIdentifier: "CocktailTableViewCell", cellType: CocktailTableViewCell.self))
                     {
                         index, model, cell in
-                            //cell.configure(model)
+                            cell.configure(model)
                     }
             .disposed(by: rx.disposeBag)
         
-        /*
+        
         // ローディング
         self.viewModel.isLoading.asDriver()
             .drive(MBProgressHUD.rx.isAnimating(view: self.view))
             .disposed(by: rx.disposeBag)
-*/
+        
+        /*
+        // UIActivityIndicatorView 利用時
         self.viewModel.isLoading.asDriver()
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: rx.disposeBag)
+        */
     }
 }
 

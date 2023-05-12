@@ -26,8 +26,23 @@ struct HttpClientRx {
                 return data
             }
     }
+    // Do any additional setup after loading the view.
+    /*
+    HttpClientRx.sendGETRequestRxAlamofire(url: "https://example.com/api/data", parameters: ["key": "value"])
+        .subscribe(onNext: { data in
+            // 受信したデータを処理する
+            print("Received data: \(data)")
+        }, onError: { error in
+            print("Error: \(error.localizedDescription)")
+        })
+        .disposed(by: rx.disposeBag)
     
-    // Decodable
+    self.viewModel.searchWord.accept("Blue")
+    self.viewModel.searchTrigger.onNext(())
+    */
+
+    
+    // Decodable利用
     static func fetchData<T: Decodable>(url: String, responseType: T.Type) -> Observable<T> {
         return RxAlamofire.requestData(.get, url)
             .flatMap { response, data -> Observable<Data> in
@@ -91,6 +106,7 @@ struct HttpClientRx {
          })
          .disposed(by: disposeBag)
      */
+    
     
     // Session 考慮
     private static let manager: Session = {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310003042A0E070B0071A245 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 310003032A0E070B0071A245 /* MBProgressHUD */; };
+		310003072A0E07610071A245 /* MBProgressHUD+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310003062A0E07610071A245 /* MBProgressHUD+Rx.swift */; };
 		316F1F3C2A0DD47A009B182B /* CocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316F1F3A2A0DD47A009B182B /* CocktailTableViewCell.swift */; };
 		31C658732A0CF2B400B1C8CE /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C658722A0CF2B400B1C8CE /* Models.swift */; };
 		31C658752A0CF2D800B1C8CE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C658742A0CF2D800B1C8CE /* ViewModel.swift */; };
@@ -21,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		310003062A0E07610071A245 /* MBProgressHUD+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+Rx.swift"; sourceTree = "<group>"; };
 		316F1F3A2A0DD47A009B182B /* CocktailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailTableViewCell.swift; sourceTree = "<group>"; };
 		31C658722A0CF2B400B1C8CE /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		31C658742A0CF2D800B1C8CE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310003042A0E070B0071A245 /* MBProgressHUD in Frameworks */,
 				77BEA4C6F8C8EC006A5EF991 /* Pods_AlamofireExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +54,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		310003052A0E07430071A245 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				310003062A0E07610071A245 /* MBProgressHUD+Rx.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		310003082A0E07840071A245 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				31DD5A262A0BD2A30054E52A /* HttpClientRx.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		316F1F372A0DD3AF009B182B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,9 +118,10 @@
 				316F1F382A0DD3C0009B182B /* ViewModel */,
 				316F1F372A0DD3AF009B182B /* Model */,
 				316F1F392A0DD3D0009B182B /* View */,
+				310003052A0E07430071A245 /* Extensions */,
+				310003082A0E07840071A245 /* Util */,
 				31DD5A122A0BD1850054E52A /* AppDelegate.swift */,
 				31DD5A142A0BD1850054E52A /* SceneDelegate.swift */,
-				31DD5A262A0BD2A30054E52A /* HttpClientRx.swift */,
 				31DD5A162A0BD1850054E52A /* ViewController.swift */,
 				31DD5A182A0BD1850054E52A /* Main.storyboard */,
 				31DD5A1B2A0BD1860054E52A /* Assets.xcassets */,
@@ -145,6 +166,9 @@
 			dependencies = (
 			);
 			name = AlamofireExample;
+			packageProductDependencies = (
+				310003032A0E070B0071A245 /* MBProgressHUD */,
+			);
 			productName = AlamofireExample;
 			productReference = 31DD5A0F2A0BD1850054E52A /* AlamofireExample.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +197,9 @@
 				Base,
 			);
 			mainGroup = 31DD5A062A0BD1850054E52A;
+			packageReferences = (
+				310003022A0E070B0071A245 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+			);
 			productRefGroup = 31DD5A102A0BD1850054E52A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,6 +272,7 @@
 				31DD5A172A0BD1850054E52A /* ViewController.swift in Sources */,
 				31DD5A132A0BD1850054E52A /* AppDelegate.swift in Sources */,
 				316F1F3C2A0DD47A009B182B /* CocktailTableViewCell.swift in Sources */,
+				310003072A0E07610071A245 /* MBProgressHUD+Rx.swift in Sources */,
 				31DD5A272A0BD2A30054E52A /* HttpClientRx.swift in Sources */,
 				31DD5A152A0BD1850054E52A /* SceneDelegate.swift in Sources */,
 				31C658752A0CF2D800B1C8CE /* ViewModel.swift in Sources */,
@@ -470,6 +498,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		310003022A0E070B0071A245 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		310003032A0E070B0071A245 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 310003022A0E070B0071A245 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 31DD5A072A0BD1850054E52A /* Project object */;
 }

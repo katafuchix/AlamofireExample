@@ -24,7 +24,7 @@ struct Cocktail: Codable {
     var strInstructions: String?
     var strInstructionsDE: String?
     var strInstructionsIT: String?
-    var strDrinkThumb: String
+    var strDrinkThumb: String?
 }
 
 extension Cocktail {

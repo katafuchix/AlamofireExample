@@ -10,11 +10,6 @@ import RxSwift
 import RxCocoa
 import RxAlamofire
 
-struct User: Codable {
-    let name: String
-    let location: String?
-}
-
 class ViewModel {
     
     let disposeBag = DisposeBag()
@@ -49,7 +44,7 @@ class ViewModel {
             .bind(to: keyword)
             .disposed(by: disposeBag)
         
-        keyword.asObservable()
+        keyword.asObservable()                      // ここはsubscribeで結果とエラーを出し分けてもOK
             .observe(on: MainScheduler.instance)
             .filter { $0.count > 0 } // 空文字でない場合にAPI実行
             .flatMapLatest { keyword -> Observable<CocktailSearchResult> in
@@ -73,5 +68,10 @@ class ViewModel {
             })
             .bind(to: self.drinks)
             .disposed(by: disposeBag)
+    }
+    
+    func reset() {
+        self.searchWord.accept("")
+        self.searchTrigger.onNext(())
     }
 }
