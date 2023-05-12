@@ -19,13 +19,15 @@
                                       headers: HTTPHeaders? = nil, 
                                       encoding: ParameterEncoding = JSONEncoding.default) -> Observable<T> {
 
-      let request = manager.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+      let request = manager.request(url, method: method, parameters: parameters, 
+                                        encoding: encoding, headers: headers)
 
       return request.rx.responseData()
           .debug() 
           .flatMap { response, data -> Observable<T> in
               guard (200..<300).contains(response.statusCode) else {
-                  let error = NSError(domain: "", code: response.statusCode, userInfo: [NSLocalizedDescriptionKey: "Server error"])
+                  let error = NSError(domain: "", code: response.statusCode, 
+                                      userInfo: [NSLocalizedDescriptionKey: "Server error"])
                   return Observable.error(error)
               }
               let decoder = JSONDecoder()
