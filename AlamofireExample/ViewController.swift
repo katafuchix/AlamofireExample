@@ -65,7 +65,6 @@ class ViewController: UIViewController {
                     }
             .disposed(by: rx.disposeBag)
         
-        
         // ローディング
         self.viewModel.isLoading.asDriver()
             .drive(MBProgressHUD.rx.isAnimating(view: self.view))
