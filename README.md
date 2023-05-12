@@ -17,7 +17,7 @@
                                       method: HTTPMethod, 
                                       parameters: Parameters?, 
                                       headers: HTTPHeaders? = nil, 
-                                      encoding: ParameterEncoding = JSONEncoding.default) -> Observable<T> {
+                                      encoding: ParameterEncoding = URLEncoding.default) -> Observable<T> {
 
       let request = manager.request(url, method: method, parameters: parameters, 
                                         encoding: encoding, headers: headers)
