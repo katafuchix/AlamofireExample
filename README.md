@@ -3,6 +3,7 @@
 - Alamofire (5.6.4)
 - RxAlamofire (6.1.1)
 
+<img src="https://github.com/katafuchix/AlamofireExample/assets/6063541/a704aeb7-17d9-4ef2-abfb-6102f712757c" width="300">
 
 ```
   private static let manager: Session = {
