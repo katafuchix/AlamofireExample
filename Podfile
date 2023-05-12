@@ -12,5 +12,6 @@ target 'AlamofireExample' do
   pod 'RxCocoa'
   pod 'NSObject+Rx'
   pod 'RxAlamofire'
-
+  pod 'RxDataSources'
+  pod 'AlamofireImage'
 end

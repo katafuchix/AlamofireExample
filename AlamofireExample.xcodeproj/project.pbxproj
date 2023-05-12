@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		316F1F3C2A0DD47A009B182B /* CocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316F1F3A2A0DD47A009B182B /* CocktailTableViewCell.swift */; };
 		31C658732A0CF2B400B1C8CE /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C658722A0CF2B400B1C8CE /* Models.swift */; };
 		31C658752A0CF2D800B1C8CE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C658742A0CF2D800B1C8CE /* ViewModel.swift */; };
 		31DD5A132A0BD1850054E52A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD5A122A0BD1850054E52A /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		316F1F3A2A0DD47A009B182B /* CocktailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailTableViewCell.swift; sourceTree = "<group>"; };
 		31C658722A0CF2B400B1C8CE /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		31C658742A0CF2D800B1C8CE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		31DD5A0F2A0BD1850054E52A /* AlamofireExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +50,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		316F1F372A0DD3AF009B182B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31C658722A0CF2B400B1C8CE /* Models.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		316F1F382A0DD3C0009B182B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				31C658742A0CF2D800B1C8CE /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		316F1F392A0DD3D0009B182B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				316F1F3A2A0DD47A009B182B /* CocktailTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		31DD5A062A0BD1850054E52A = {
 			isa = PBXGroup;
 			children = (
@@ -69,12 +95,13 @@
 		31DD5A112A0BD1850054E52A /* AlamofireExample */ = {
 			isa = PBXGroup;
 			children = (
+				316F1F382A0DD3C0009B182B /* ViewModel */,
+				316F1F372A0DD3AF009B182B /* Model */,
+				316F1F392A0DD3D0009B182B /* View */,
 				31DD5A122A0BD1850054E52A /* AppDelegate.swift */,
 				31DD5A142A0BD1850054E52A /* SceneDelegate.swift */,
-				31DD5A162A0BD1850054E52A /* ViewController.swift */,
 				31DD5A262A0BD2A30054E52A /* HttpClientRx.swift */,
-				31C658722A0CF2B400B1C8CE /* Models.swift */,
-				31C658742A0CF2D800B1C8CE /* ViewModel.swift */,
+				31DD5A162A0BD1850054E52A /* ViewController.swift */,
 				31DD5A182A0BD1850054E52A /* Main.storyboard */,
 				31DD5A1B2A0BD1860054E52A /* Assets.xcassets */,
 				31DD5A1D2A0BD1860054E52A /* LaunchScreen.storyboard */,
@@ -217,6 +244,7 @@
 			files = (
 				31DD5A172A0BD1850054E52A /* ViewController.swift in Sources */,
 				31DD5A132A0BD1850054E52A /* AppDelegate.swift in Sources */,
+				316F1F3C2A0DD47A009B182B /* CocktailTableViewCell.swift in Sources */,
 				31DD5A272A0BD2A30054E52A /* HttpClientRx.swift in Sources */,
 				31DD5A152A0BD1850054E52A /* SceneDelegate.swift in Sources */,
 				31C658752A0CF2D800B1C8CE /* ViewModel.swift in Sources */,
@@ -364,10 +392,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2BA409EC541BD50F6D60B71 /* Pods-AlamofireExample.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AlamofireExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -392,10 +422,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C6227FDA59B05CA83C57E30 /* Pods-AlamofireExample.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AlamofireExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
